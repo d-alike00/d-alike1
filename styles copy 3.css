@@ -1,0 +1,404 @@
+/* Link to Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Arbutus+Slab&display=swap');
+
+/* General body styling */
+body {
+    font-family: 'Arbutus Slab', serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+/* Hero section styling with background image */
+.hero {
+    position: relative; /* Needed for the pseudo-element */
+    background: url('images/path-to-hero-image-1920.jpg') no-repeat center center/cover;
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+    overflow: hidden; /* Ensures the pseudo-element stays within bounds */
+}
+
+/* Specific hero image for each page */
+.hero.home-hero {
+    background: url('images/path-to-home-hero-image-1920.jpg') no-repeat center center/cover;
+}
+
+.hero.index-hero {
+    background: url('images/path-to-hero-image-1920.jpg') no-repeat center center/cover;
+}
+
+.hero.about-hero {
+    background: url('images/path-to-about-image-1920.jpg') no-repeat center center/cover;
+}
+
+.hero.events-hero {
+    background: url('images/path-to-events-image-1920.jpg') no-repeat center center/cover;
+}
+
+/* Adding the water animation overlay */
+.hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('images/water-animation.gif') no-repeat center center/cover;
+    background-size: cover; /* Ensures the GIF covers the entire hero section */
+    opacity: 0.08; /* Adjust to make the water effect more or less visible */
+    z-index: 1;
+}
+
+/* Ensure content appears above the pseudo-element */
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 600px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Styling for the paragraph within the hero section */
+.hero-paragraph {
+    position: absolute;
+    bottom: 390px; /* Adjust the distance from the bottom as needed */
+    left: 30px; /* Adjust the distance from the left as needed */
+    font-size: 2.2em;
+    color: #fff;
+    margin-top: 20px;
+    text-align: left;
+}
+
+/* Add repeating slashes below the hero paragraph */
+.hero-paragraph::after {
+    content: "/\A/\A/\A/\A/\A/\A/";
+    display: block;
+    position: absolute;
+    top: 150%;
+    left: 0;
+    width: 100%;
+    height: calc(100vh - 24em); /* Adjust the height to fill the remaining space */
+    color: #fff;
+    font-size: 2em; /* Adjust font size of the slashes */
+    line-height: 1.5em; /* Adjust line height for spacing */
+    white-space: pre-line;
+}
+
+@media (max-width: 480px) {
+    .hero-paragraph {
+        font-size: 5vw; /* Adjust font size for mobile devices */
+        bottom: 600px; /* Adjust positioning for mobile devices */
+        left: 4vw; /* Adjust the distance from the left as needed */
+        text-align: left;
+	margin-right: 3px;
+    }
+}
+
+/* Styling for the image within the hero section */
+.hero-image {
+    position: absolute;
+    bottom: 10em; /* Adjust the distance from the bottom as needed */
+    left: 20px; /* Adjust the distance from the left as needed */
+    width: 300px; /* Adjust the width as needed */
+    height: auto; /* Maintain aspect ratio */
+    margin-top: 20px; /* Adjust spacing as needed */
+}
+
+/* Add repeating slashes below the hero image */
+.hero-image::after {
+    content: "/\A/\A/\A/\A/\A/\A/";
+    display: block;
+    position: absolute;
+    top: 150%;
+    left: 0;
+    width: 100%;
+    color: #fff;
+    font-size: 2em; /* Adjust font size of the slashes */
+    line-height: 1.5em; /* Adjust line height for spacing */
+    white-space: pre-line;
+}
+
+ @media (max-width: 480px) {
+    .hero-image {
+    position: absolute;
+    bottom: 28em; /* Adjust the distance from the bottom as needed */
+    left: 20px; /* Adjust the distance from the left as needed */
+    width: 300px; /* Adjust the width as needed */
+    height: auto; /* Maintain aspect ratio */
+    margin-top: 20px; /* Adjust spacing as needed */
+    }
+}
+
+/* Styles for home-left class */
+.home-left .hero {
+    justify-content: flex-start; /* Align items to the top */
+    align-items: flex-start; /* Align items to the left */
+    padding-top: 20px; /* Add padding if necessary */
+    padding-left: 20px; /* Add padding if necessary */
+    height: 100vh; /* Ensure the hero section still covers the viewport height */
+}
+
+.home-left .hero-content {
+    align-items: flex-start; /* Align hero content to the top left */
+    text-align: left; /* Align text to the left */
+    max-width: none; /* Remove max-width restriction */
+}
+
+/* Change header size for home-left class */
+.home-left .hero-content h1 {
+    font-size: 8vw; /* Adjust the font size as needed */
+}
+
+/* Draggable images styling */
+.draggable {
+    cursor: move;
+    width: 300px; /* Adjust the width as needed */
+    height: auto; /* Maintain aspect ratio */
+    margin: 10px; /* Space between images */
+}
+
+/* Additional styles to adjust layout */
+.links {
+    display: flex;
+    gap: 20px;
+flex-wrap: wrap; /* Allow wrapping for smaller screens */
+}
+
+/* Logo styling */
+.logo {
+    width: 200px; /* Adjust logo width as needed */
+    margin-bottom: 20px; /* Space between logo and form container */
+}
+
+/* General styling for the form container */
+.form-container {
+    background-color: #333; /* Dark gray background */
+    padding: 20px; /* Add padding around the container */
+    border-radius: 10px; /* Rounded corners for the container */
+    display: flex; /* Use flexbox to align items */
+    flex-direction: column; /* Stack items vertically */
+    overflow: hidden; /* Hide overflow to maintain border-radius */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional shadow for depth */
+    margin: 0 auto; /* Center the container in the hero content */
+    width: 220px; /* Width of the container to match design */
+}
+
+/* Style inputs and buttons to appear seamless */
+.signup-form input,
+.signup-form button,
+.cta-button.secondary {
+    background-color: #333; /* Same background as the container */
+    border: none; /* No borders between elements */
+    margin: 0; /* No margins between elements */
+    color: white; /* White text color for visibility */
+    text-align: center; /* Center text alignment */
+    font-family: 'Arbutus Slab', serif; /* Consistent font */
+    font-size: 16px; /* Uniform font size */
+    padding: 12px 20px; /* Padding for aesthetics */
+    outline: none; /* Remove focus outline */
+    width: 100%; /* Full width of the container */
+    box-sizing: border-box; /* Include padding and border in the width */
+    cursor: pointer; /* Cursor for buttons */
+    border-radius: 0; /* Ensure buttons and inputs touch without rounding */
+}
+
+/* Ensure inputs are not focus-highlighted in a way that breaks the design */
+.signup-form input:focus {
+    outline: none;
+}
+
+/* Hover effect for buttons */
+.signup-form button:hover,
+.cta-button.secondary:hover {
+    background-color: #555; /* Darker shade for hover */
+}
+
+/* Make the form elements and buttons stack vertically */
+.signup-form input:first-child {
+    border-top-left-radius: 10px; /* Rounded corners for the top */
+    border-top-right-radius: 10px; /* Rounded corners for the top */
+}
+
+.signup-form button:last-child,
+.cta-button.secondary:last-child {
+    border-bottom-left-radius: 10px; /* Rounded corners for the bottom */
+    border-bottom-right-radius: 10px; /* Rounded corners for the bottom */
+}
+
+.cta-button.secondary {
+    margin-top: 0; /* Ensure no margin between form elements */
+}
+
+/* Responsive design for tablets */
+@media (max-width: 768px) {
+    .hero {
+        height: 50vh;
+    }
+
+    .form-container {
+        width: 100%; /* Full width for smaller screens */
+    }
+
+    .signup-form input,
+    .signup-form button,
+    .cta-button.secondary {
+        width: 100%; /* Full width for smaller screens */
+        padding: 12px; /* Adjust padding for smaller screens */
+    }
+}
+
+/* Responsive design for mobile devices */
+@media (max-width: 480px) {
+    .hero {
+        height: 40vh;
+    }
+}
+
+/* Home section styling */
+.home-section {
+    background-color: #fff;
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.home-content {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.home-content .links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+/* About section styling with a different background image */
+.about-section {
+    background: url('images/path-to-about-image-1920.jpg') no-repeat center center/cover;
+    padding: 50px 20px;
+    color: #fff;
+    text-align: center;
+}
+
+.about-content {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: rgba(0, 0, 0, 0); /* Optional: Add a semi-transparent background for better text readability */
+    padding: 20px;
+    border-radius: 10px;
+}
+
+/* Styling for the paragraph in the about section */
+.about-content p {
+    font-size: 1.2em;
+    color: #fff; /* Change text color to white */
+    margin-top: 20px; /* Adjust spacing as needed */
+    text-align: left;
+    margin: 10px 50px 20px 0;
+}
+
+.about-section h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+
+.about-section p {
+    font-size: 1.2em;
+    color: #ddd;
+}
+
+/* Events section styling with a different background image */
+.events-section {
+    background: url('images/path-to-events-image-1920.jpg') no-repeat center center/cover;
+    padding: 50px 20px;
+    color: #fff;
+    text-align: center;
+}
+
+.events-content {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: rgba(0, 0, 0, 0.5); /* Optional: Add a semi-transparent background for better text readability */
+    padding: 20px;
+    border-radius: 10px;
+}
+/* Event image styling */
+.event-image {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    bottom: 400px
+    margin: 20px auto;
+    border-radius: 10px; /* Optional: Add rounded corners */
+}
+
+.events-section h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+.events-section p {
+    font-size: 1.2em;
+    color: #ddd;
+}
+
+/* scrolling text container */
+.scrolling-text-container {
+    position: fixed; /* Sticks the container to a fixed position */
+    width: 100%; /* Full width */
+    overflow: hidden; /* Hide overflow */
+    background: transparent; /* Transparent background */
+    color: white; /* Text color */
+    z-index: 1000; /* Ensure it stays on top */
+    padding: 10px 0; /* Padding for better appearance */
+}
+
+.scrolling-text-container.top {
+    top: 0; /* Position it at the top */
+}
+
+.scrolling-text-container.bottom {
+    bottom: 0; /* Position it at the bottom */
+}
+
+/* scrolling text */
+.scrolling-text {
+    display: flex; /* Flexbox for horizontal alignment */
+    white-space: nowrap; /* Prevent line breaks */
+    animation: scroll 25s linear infinite; /* Animation for continuous scroll */
+    font-style: italic; /* Italicize the text */
+}
+
+.scrolling-text.reverse {
+    animation: scroll-reverse 25s linear infinite; /* Reverse animation for bottom text */
+    font-style: italic; /* Italicize the text */
+}
+
+.scrolling-text span {
+    display: inline-block; /* Inline-block for proper spacing */
+    padding-right: 100px; /* Space between repetitions */
+    font-size: 1.5em; /* Font size */
+}
+
+/* Keyframes for the scrolling animation */
+@keyframes scroll {
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(-100%); }
+}
+
+/* Keyframes for the reverse scrolling animation */
+@keyframes scroll-reverse {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
